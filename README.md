@@ -1,6 +1,6 @@
-# SkillZone LMS – Full‑Stack E‑Learning Platform
+# LMS – Full‑Stack E‑Learning Platform
 
-SkillZone LMS is a full‑stack Learning Management System built using **React**, **Golang**, and **PostgreSQL**.  
+LMS is a full‑stack Learning Management System built using **React**, **Golang**, and **PostgreSQL**.  
 It provides a complete platform for managing courses, teachers, students, schedules, analytics, payments, and AI‑powered learning tools.
 
 ---
