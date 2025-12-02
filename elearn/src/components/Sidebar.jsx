@@ -12,7 +12,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="bg-zinc-800 text-white flex flex-col p-4 h-full rounded-3xl">
+    <div className="bg-zinc-800 text-white flex flex-col p-2 h-full rounded-lg">
       <h1 className="text-2xl font-bold mb-8">SkillZone</h1>
       <nav className="flex flex-col gap-2">
         {menuItems.map((item, idx) => (
