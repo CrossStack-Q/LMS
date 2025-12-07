@@ -1,0 +1,32 @@
+[
+  {
+    "id": "khushi",
+    "name": "Khushi",
+    "rating": 4.9,
+    "reviewsCount": 236,
+    "experience": "7+ years",
+    "courses": 24,
+    "students": 250,
+    "lessons": 132,
+    "price": 32,
+    "designation": "Economics teacher",
+    "tags": [
+      "Economics",
+      "Financial Theory",
+      "Management",
+      "Politics",
+      "Finance",
+      "International Economy",
+      "Business English",
+      "Time Management",
+      "Global Economy",
+      "Oxford",
+      "Microeconomics",
+      "IELTS"
+    ],
+    "bio": "Hello Student! Economics isn't just a subject - it's the lens through which we view society. I will help you explore its profound implications. From micro to macroeconomics, discover the keys to understanding economic phenomena in my comprehensive courses 🦋🚀",
+    "about": "Having graduated from Oxford University with a degree in Economics, I was fortunate to receive a rigorous education steeped in academic excellence and research-driven inquiry. I’m not only equipped with a deep understanding of economic theory but also instilled in me a commitment to critical thinking and analytical rigor.",
+    "image": "https://randomuser.me/api/portraits/women/3.jpg",
+    "videoThumbnail": "https://placehold.co/600x400"
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Cynthia W.",
+    "comment": "Absolutely brilliant course, trust me! Jenny’s deep knowledge of economics, coupled with her engaging teaching style, made every lesson a pleasure!",
+    "rating": 5,
+    "avatar": "https://randomuser.me/api/portraits/women/2.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Brian B.",
+    "comment": "Invaluable experience, tons of useful knowledge.",
+    "rating": 5,
+    "avatar": "https://randomuser.me/api/portraits/men/4.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Juliet M.",
+    "comment": "I can't recommend this course enough! Jenny’s passion for economics is contagious.",
+    "rating": 5,
+    "avatar": "https://randomuser.me/api/portraits/women/44.jpg"
+  }
+]
