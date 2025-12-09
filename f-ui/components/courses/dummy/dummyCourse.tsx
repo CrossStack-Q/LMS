@@ -6,10 +6,7 @@ import CourseCard from "./CourseCard";
 import CategoryPill from "./CategoryPill";
 
 // Corrected JSON for categories
-const ALL_CATEGORIES = [
-  { label: "Web Development", count: 3 },
-  { label: "System Design", count: 1 },
-];
+
 
 function SectionHeader({ title, subtitle }: { title: string; subtitle?: string }) {
   return (
@@ -86,6 +83,7 @@ function CourseGrid({ courses }: { courses: Course[] }) {
 
 export default function CoursesPageOO() {
   const [courses, setCourses] = useState<Course[]>([]);
+  const [categories, setCategories] = useState([])
   const [loading, setLoading] = useState(true);
   const [activeCat, setActiveCat] = useState<string>("All");
   const [query, setQuery] = useState("");
@@ -102,6 +100,18 @@ export default function CoursesPageOO() {
         setLoading(false);
       }
     }
+    async function loadCategories() {
+      try {
+        const res = await fetch("http://localhost:8080/api/v1/categories")
+        const data = await res.json()
+        setCategories(data)
+      } catch (err) {
+        console.error(err)
+      } finally {
+        setLoading(false)
+      }
+    }
+    loadCategories()
     loadCourses();
   }, []);
 
@@ -111,7 +121,7 @@ export default function CoursesPageOO() {
     // Category filter
     if (activeCat !== "All") {
       items = items.filter(
-        (c) => c.category === activeCat || c.category.includes(activeCat)
+        (c) => c.category_name === activeCat || c.category_name.includes(activeCat)
       );
     }
 
@@ -153,13 +163,13 @@ export default function CoursesPageOO() {
         active={activeCat === "All"}
         onClick={() => setActiveCat("All")}
       />
-      {ALL_CATEGORIES.map((c) => (
+      {categories.map((c) => (
         <CategoryPill
-          key={c.label}
-          label={c.label}
-          count={c.count}
-          active={activeCat === c.label}
-          onClick={() => setActiveCat(c.label)}
+          key={c.id}
+          label={c.name}
+          count={c.course_count}
+          active={activeCat === c.name}
+          onClick={() => setActiveCat(c.name)}
         />
       ))}
     </div>
@@ -170,13 +180,13 @@ export default function CoursesPageOO() {
         active={activeCat === "All"}
         onClick={() => setActiveCat("All")}
       />
-      {ALL_CATEGORIES.slice(0, 5).map((c) => (
+      {categories.slice(0, 5).map((c) => (
         <CategoryPill
-          key={c.label}
-          label={c.label}
-          count={c.count}
-          active={activeCat === c.label}
-          onClick={() => setActiveCat(c.label)}
+          key={c.id}
+          label={c.name}
+          count={c.course_count}
+          active={activeCat === c.name}
+          onClick={() => setActiveCat(c.name)}
         />
       ))}
     </div>

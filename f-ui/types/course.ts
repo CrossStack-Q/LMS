@@ -7,8 +7,10 @@ export interface Course {
   cover_image: string;
   teacher_id: number | null;  
   short_desc: string;         
-  category: string;           
+  category_name: string;           
   level: string;              
   price: number;
   is_free: boolean;
+  teacher_name: string;
+  teacher_image : string;
 }

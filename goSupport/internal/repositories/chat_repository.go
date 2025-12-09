@@ -99,3 +99,75 @@ func (r *ChatRepository) GetConversationByUsers(ctx context.Context, userA, user
 	}
 	return &conv, nil
 }
+
+// func (r *ChatRepository) SaveMessageFromWS(
+// 	ctx context.Context,
+// 	convID string,
+// 	sender string,
+// 	recipient string,
+// 	msgType string,
+// 	ciphertext string,
+// ) error {
+
+// 	// Create message model instance
+// 	msg := &models.Message{
+// 		ConversationID: convID,
+// 		SenderID:       sender,
+// 		RecipientID:    recipient,
+// 		MessageType:    msgType,
+// 		Ciphertext:     ciphertext,
+// 		Status:         "sent",
+// 		CreatedAt:      time.Now(),
+// 	}
+
+// 	// Insert message into DB
+// 	if err := r.DB.WithContext(ctx).
+// 		Model(&models.Message{}).
+// 		Create(msg).
+// 		Error; err != nil {
+// 		return err
+// 	}
+
+// 	// Update conversation updated_at
+// 	if err := r.DB.WithContext(ctx).
+// 		Model(&models.Conversation{}).
+// 		Where("id = ?", convID).
+// 		Update("updated_at", time.Now()).
+// 		Error; err != nil {
+// 		return err
+// 	}
+
+// 	return nil
+// }
+
+func (r *ChatRepository) SaveMessageFromWS(
+	ctx context.Context,
+	convID string,
+	sender string,
+	recipient string,
+	msgType string,
+	ciphertext string,
+) error {
+
+	msg := &models.Message{
+		ConversationID: convID,
+		SenderID:       sender,
+		RecipientID:    recipient,
+		MessageType:    msgType,
+		Ciphertext:     ciphertext,
+		Status:         "sent",
+		CreatedAt:      time.Now(),
+	}
+
+	// Insert using GORM
+	if err := r.DB.WithContext(ctx).Create(msg).Error; err != nil {
+		return err
+	}
+
+	// Update conversation timestamp
+	return r.DB.WithContext(ctx).
+		Model(&models.Conversation{}).
+		Where("id = ?", convID).
+		Update("updated_at", time.Now()).
+		Error
+}

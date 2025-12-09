@@ -56,3 +56,17 @@ type LessonContent struct {
 	Value      interface{} `gorm:"column:value;type:jsonb"`
 	OrderIndex int64
 }
+
+type Category struct {
+	ID          int64     `gorm:"primaryKey" json:"id"`
+	Name        string    `json:"name"`
+	CourseCount int64     `gorm:"column:course_count" json:"course_count"`
+	CreatedAt   time.Time `json:"created_at"`
+	UpdatedAt   time.Time `json:"updated_at"`
+}
+
+type CourseCategory struct {
+	ID         int64 `gorm:"primaryKey" json:"id"`
+	CourseID   int64 `json:"course_id"`
+	CategoryID int64 `json:"category_id"`
+}

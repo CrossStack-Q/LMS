@@ -28,7 +28,7 @@ export default async function TeacherProfile({ params }: { params: Promise<{ id:
       <div className="sticky top-0 bg-gray-50 z-50 pb-1">
         <HomeTopBar />
       </div>
-      <p className="p-2 text-lg">
+      <p className="p-2 text-xl">
         
         <span className="text-zinc-500">
           Teacher /&nbsp;
@@ -42,7 +42,7 @@ export default async function TeacherProfile({ params }: { params: Promise<{ id:
 
       {/* LEFT MAIN CONTENT */}
       <div className="flex-1">
-        <div className="bg-white p-4 rounded-lg">
+        <div className="bg-white p-4">
         <TeacherHeader teacher={teacher} />
         <TeacherTags tags={teacher.tags} />
         <TeacherStats teacher={teacher} />

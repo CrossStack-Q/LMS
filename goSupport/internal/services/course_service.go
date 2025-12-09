@@ -19,33 +19,37 @@ func NewCourseService(r *repositories.CourseRepository) *CourseService {
 // ------------------------------------------------------------
 // 1) GET ALL COURSES (SUMMARY LIST)
 // ------------------------------------------------------------
+// func (s *CourseService) GetAllCourses(ctx context.Context) ([]dto.CourseSummaryDTO, error) {
+// 	courses, err := s.Repo.ListCourseSummaries(ctx)
+// 	if err != nil {
+// 		return nil, err
+// 	}
+
+// 	resp := []dto.CourseSummaryDTO{}
+
+// 	for _, c := range courses {
+// 		resp = append(resp, dto.CourseSummaryDTO{
+// 			ID:        c.ID,
+// 			Title:     c.Title,
+// 			Cover:     c.CoverImage,
+// 			ShortDesc: c.ShortDesc,
+// 			Category:  c.Category,
+// 			// Rating:    4.9, // You do not have rating in DB yet
+// 			CreatedAt:   c.CreatedAt,
+// 			UpdatedAt:   c.UpdatedAt,
+// 			Description: c.Description,
+// 			TeacherID:   c.TeacherID,
+// 			Level:       c.Level,
+// 			Price:       c.Price,
+// 			IS_Free:     c.IsFree,
+// 		})
+// 	}
+
+// 	return resp, nil
+// }
+
 func (s *CourseService) GetAllCourses(ctx context.Context) ([]dto.CourseSummaryDTO, error) {
-	courses, err := s.Repo.GetAllCourses(ctx)
-	if err != nil {
-		return nil, err
-	}
-
-	resp := []dto.CourseSummaryDTO{}
-
-	for _, c := range courses {
-		resp = append(resp, dto.CourseSummaryDTO{
-			ID:        c.ID,
-			Title:     c.Title,
-			Cover:     c.CoverImage,
-			ShortDesc: c.ShortDesc,
-			Category:  c.Category,
-			// Rating:    4.9, // You do not have rating in DB yet
-			CreatedAt:   c.CreatedAt,
-			UpdatedAt:   c.UpdatedAt,
-			Description: c.Description,
-			TeacherID:   c.TeacherID,
-			Level:       c.Level,
-			Price:       c.Price,
-			IS_Free:     c.IsFree,
-		})
-	}
-
-	return resp, nil
+	return s.Repo.ListCourseSummaries(ctx)
 }
 
 // ------------------------------------------------------------

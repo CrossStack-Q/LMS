@@ -2,6 +2,7 @@ import React from "react";
 import { Bookmark, BadgeCheck, Users, BookOpen, Flame } from "lucide-react";
 import Link from "next/link";
 import { Course } from "@/types/course";
+import Image from "next/image";
 
 const truncateText = (text: string, maxLength: number): string => {
     if (!text) return "";
@@ -15,10 +16,12 @@ const CourseCard: React.FC<Course> = ({
     title,
     description,
     cover_image,
-    teacher_id,
+    // teacher_id,
     short_desc,
-    category,
+    category_name,
     level,
+    teacher_name,
+    teacher_image,
     price,
     is_free,
 }) => {
@@ -33,7 +36,7 @@ const CourseCard: React.FC<Course> = ({
 
             <div className="text-zinc-500 pb-2 border-b border-zinc-500 text-sm 
                        group-hover:text-white group-hover:border-white transition-colors flex justify-between">
-                <span>{category}</span>
+                <span>{category_name}</span>
                 <span>{level}</span>
 
             </div>
@@ -48,7 +51,12 @@ const CourseCard: React.FC<Course> = ({
             </span>
 
             <div className="flex justify-between items-end mt-auto">
-                <span>{teacher_id} Teacher Name</span>
+                <div className="flex items-center gap-2 transition-opacity duration-300
+                       group-hover:opacity-0">
+                    <Image width={40} height={40} src={teacher_image} alt={teacher_name} className="rounded-full"/>
+                    
+                <span>{teacher_name}</span>
+                </div>
                 <img
                     src={cover_image}
                     className="w-48 h-24 object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"

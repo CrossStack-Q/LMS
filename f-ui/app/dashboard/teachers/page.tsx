@@ -35,7 +35,7 @@ export default function TeachersPage() {
       );
     }
   return (
-    <div className="h-full px-6 overflow-y-auto hidescroll">
+    <div className="h-full overflow-y-auto hidescroll">
       
       <div className="sticky top-0 bg-gray-50 z-50 pb-1">
         <HomeTopBar />

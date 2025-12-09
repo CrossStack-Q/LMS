@@ -11,7 +11,7 @@ type Conversation struct {
 }
 
 type Message struct {
-	ID             string                 `gorm:"type:uuid;primaryKey" json:"id"`
+	ID             string                 `gorm:"type:uuid;default:gen_random_uuid();primaryKey" json:"id"`
 	ConversationID string                 `gorm:"type:uuid;index;not null" json:"conversation_id"`
 	SenderID       string                 `gorm:"type:uuid;not null" json:"sender_id"`
 	RecipientID    string                 `gorm:"type:uuid;not null" json:"recipient_id"`

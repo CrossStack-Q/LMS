@@ -3,6 +3,7 @@ package repositories
 import (
 	"context"
 
+	"github.com/CrossStack-Q/LMS/goSupport/internal/dto"
 	"github.com/CrossStack-Q/LMS/goSupport/internal/models"
 	"gorm.io/gorm"
 )
@@ -18,12 +19,37 @@ func NewCourseRepository(db *gorm.DB) *CourseRepository {
 // ------------------------------------------------------------
 // 1) GET ALL COURSES
 // ------------------------------------------------------------
-func (r *CourseRepository) GetAllCourses(ctx context.Context) ([]models.Course, error) {
-	var courses []models.Course
+func (r *CourseRepository) ListCourseSummaries(ctx context.Context) ([]dto.CourseSummaryDTO, error) {
+
+	var result []dto.CourseSummaryDTO
+
 	err := r.DB.WithContext(ctx).
-		Order("created_at DESC").
-		Find(&courses).Error
-	return courses, err
+		Table("courses c").
+		Select(`
+            c.id,
+            c.title,
+            c.cover_image,
+            c.short_desc,
+            c.level,
+            c.price,
+            c.is_free,
+            c.created_at,
+            c.updated_at,
+
+            t.name AS teacher_name,
+            t.profile_picture_link AS teacher_image,
+            t.rating AS teacher_rating,
+
+            cat.id AS category_id,
+            cat.name AS category_name
+        `).
+		Joins("LEFT JOIN teacher_profiles t ON t.id = c.teacher_id").
+		Joins("LEFT JOIN courses_categories cc ON cc.course_id = c.id").
+		Joins("LEFT JOIN categories cat ON cat.id = cc.category_id").
+		Order("c.created_at DESC").
+		Scan(&result).Error
+
+	return result, err
 }
 
 // ------------------------------------------------------------

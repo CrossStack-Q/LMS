@@ -53,18 +53,46 @@ type CourseDTO struct {
 	Sections  []SectionDTO     `json:"sections"`
 }
 
+//	type CourseSummaryDTO struct {
+//		ID        int64  `json:"id"`
+//		Title     string `json:"title"`
+//		Cover     string `json:"cover_image"`
+//		ShortDesc string `json:"short_desc"`
+//		Category  string `json:"category"`
+//		// Rating    float64 `json:"rating"`
+//		CreatedAt   time.Time `json:"created_at"`
+//		UpdatedAt   time.Time `json:"updated_at"`
+//		Description string    `json:"description"`
+//		TeacherID   int64     `json:"teacher_id"`
+//		Level       string    `json:"level"`
+//		Price       float64   `json:"price"`
+//		IS_Free     bool      `json:"is_free"`
+//	}
 type CourseSummaryDTO struct {
-	ID        int64  `json:"id"`
-	Title     string `json:"title"`
-	Cover     string `json:"cover_image"`
-	ShortDesc string `json:"short_desc"`
-	Category  string `json:"category"`
-	// Rating    float64 `json:"rating"`
-	CreatedAt   time.Time `json:"created_at"`
-	UpdatedAt   time.Time `json:"updated_at"`
-	Description string    `json:"description"`
-	TeacherID   int64     `json:"teacher_id"`
-	Level       string    `json:"level"`
-	Price       float64   `json:"price"`
-	IS_Free     bool      `json:"is_free"`
+	ID         int64   `json:"id"`
+	Title      string  `json:"title"`
+	CoverImage string  `json:"cover_image"`
+	ShortDesc  string  `json:"short_desc"`
+	Level      string  `json:"level"`
+	Price      float64 `json:"price"`
+	IsFree     bool    `json:"is_free"`
+
+	// Teacher joined info
+	TeacherName   string  `json:"teacher_name"`
+	TeacherImage  string  `json:"teacher_image"`
+	TeacherRating float64 `json:"teacher_rating"`
+
+	// Category joined info
+	CategoryID   int64  `json:"category_id"`
+	CategoryName string `json:"category_name"`
+
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
+}
+
+type CategoryWithCoursesDTO struct {
+	ID          int64              `json:"id"`
+	Name        string             `json:"name"`
+	CourseCount int64              `json:"course_count"`
+	Courses     []CourseSummaryDTO `json:"courses"`
 }

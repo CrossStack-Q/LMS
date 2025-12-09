@@ -34,11 +34,12 @@ const TeacherCard: React.FC<Teacher> = ({
   students,
   sessions,
   user_id,
+  total_lessons,
 }) => {
 
   return (
     <div
-      className={`w-80 rounded-2xl shadow-md p-5 shrink-0 transition-all duration-300 hover:scale-[1.02] ${is_top_tutor ? "bg-zinc-800 text-white" : "bg-white text-zinc-800"
+      className={`w-80 rounded-2xl shadow-md p-4 shrink-0 transition-all duration-300 hover:scale-[1.02] ${is_top_tutor ? "bg-zinc-800 text-white" : "bg-white text-zinc-800"
         }`}
     >
       {/* Header Row */}
@@ -95,7 +96,7 @@ const TeacherCard: React.FC<Teacher> = ({
           }`}
       >
         <p className="flex items-center gap-2">
-          <BookOpen className="w-4 h-4" /> {sessions} lessons conducted
+          <BookOpen className="w-4 h-4" /> {total_lessons} lessons conducted
         </p>
         <p className="flex items-center gap-2">
           <BookOpen className="w-4 h-4" /> {courses} courses{" "}
