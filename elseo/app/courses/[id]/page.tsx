@@ -32,34 +32,31 @@ export default function CourseOverviewPage({
 
   
   return (
-    <main className="min-h-screen text-(--gray-900) pb-8">
-      <Navbar />
-      <div className="border-x-2 border-(--gray-500) max-w-7xl mx-auto">
-        <div className=' border-b-2 border-(--gray-500) grid grid-cols-4'>
-          <div className='border-r-2 border-(--gray-500) py-4'>
+      <main className="border-x border-(--gray-500) max-w-7xl mx-auto text-(--gray-900)">
+        <div className=' border-b border-(--gray-500) grid grid-cols-4'>
+          <div className='border-r border-(--gray-500) py-4'>
             <p className='text-center'>
               {`<`}-- Back
             </p>
           </div>
-          <div className='border-r-2 border-(--gray-500) py-4'></div>
-          <div className='border-r-2 border-(--gray-500) py-4'></div>
+          <div className='border-r border-(--gray-500) py-4'></div>
+          <div className='border-r border-(--gray-500) py-4'></div>
           <div className='py-4'></div>
         </div>
       <Hero text={course.title} desc={course.description}
         author={`Harshita Sharma`}
         rating={`4.5 ⭐️⭐️⭐️⭐️⭐️ [107 ratings] `}
         level={course.level}
+        isImage={true}
       />
       <CourseSepDesc/>
       <ReviewHeader2/>
       <Reviews/>
-      <div className='py-12 border-b-2 border-(--gray-500)'>
+      <div className='py-12 border-b border-(--gray-500)'>
 
       </div>
 
       {/* <TopicsSection />  */}
-      </div>
-      <Footer />
-    </main>
+      </main>
   )
 }

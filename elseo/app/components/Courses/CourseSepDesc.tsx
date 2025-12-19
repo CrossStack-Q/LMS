@@ -10,8 +10,8 @@ export default function CourseSepDesc() {
     router.push(`${pathname}/lesson`);
   }
     return (
-        <div className='grid grid-cols-6 border-t-2 border-(--gray-500)'>
-            <div className='col-span-4 p-6 border-r-2 border-(--gray-500)'>
+        <div className='grid grid-cols-6 border-t border-(--gray-500)'>
+            <div className='col-span-4 p-6 border-r border-(--gray-500)'>
                 <p className='text-4xl font-semibold py-4'>
                     What You'll Learn
                 </p>
@@ -40,7 +40,7 @@ export default function CourseSepDesc() {
                         </p>
                     </div>
                 </div>
-                <div className='bg-(--primary-green) p-4 text-center cursor-pointer text-lg border-t-2 border-(--gray-500)'
+                <div className='bg-(--primary-green) p-4 text-center cursor-pointer text-lg border-t border-(--gray-500)'
                 onClick={handleStartCourse}
                 >
                     Start Course

@@ -23,9 +23,9 @@
 //   };
 
 //   return (
-//     <div className="border-t-2 border-(--gray-500) grid grid-cols-4">
+//     <div className="border-t border-(--gray-500) grid grid-cols-4">
 //       {/* LEFT SIDEBAR */}
-//       <div className="col-span-1 border-r-2 border-(--gray-500) p-6">
+//       <div className="col-span-1 border-r border-(--gray-500) p-6">
 //         {sections.map((section) => {
 //           const isOpen = openSection === section.id;
 
@@ -109,9 +109,9 @@ export default function CourseSection({
   const [openSection, setOpenSection] = useState<number | null>(1);
 
   return (
-    <div className="border-t-2 border-(--gray-500) grid grid-cols-4">
+    <div className="border-t border-(--gray-500) grid grid-cols-4">
       {/* LEFT SIDEBAR */}
-      <aside className="col-span-1 border-r-2 border-(--gray-500) p-6">
+      <aside className="col-span-1 border-r border-(--gray-500) p-6">
         {sections.map((section) => {
           const isOpen = openSection === section.id;
 

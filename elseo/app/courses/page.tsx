@@ -1,43 +1,3 @@
-// import ActiveCourses from "../components/Courses/ActiveCourses";
-// import CoursesFilters from "../components/Courses/CoursesFilters";
-// import CoursesGrid from "../components/Courses/CoursesGrid";
-// import Navbar from "../components/Navbar";
-
-// export default function CoursesPage() {
-//     return (
-//         <main className="min-h-screen text-(--gray-900)">
-//             {/* No Navbar here, you already render it globally */}
-//             <Navbar />
-
-//             <div className="border-x-2 border-(--gray-500) max-w-7xl mx-auto">
-
-//                 {/* Active Courses section */}
-//                 <ActiveCourses />
-
-//                 <div className="col-span-4 row-span-2 px-6 pt-12 flex flex-col justify-end">
-//                     <h2 className="text-4xl font-medium">Courses</h2>
-//                 </div>
-
-//                 {/* Filters */}
-//                 <CoursesFilters />
-
-//                 {/* Courses Grid */}
-//                 <CoursesGrid />
-//                 <div className="py-8">
-
-//                 </div>
-//             </div>
-//         </main>
-//     );
-// }
-
-
-
-
-
-
-
-
 "use client";
 
 import Navbar from "../components/Navbar";
@@ -45,6 +5,7 @@ import ActiveCourses from "../components/Courses/ActiveCourses";
 import CoursesFilters from "../components/Courses/CoursesFilters";
 import CoursesGrid from "../components/Courses/CoursesGrid";
 import { useEffect, useState } from "react";
+import Footer from "../components/Footer";
 
 export default function CoursesPage() {
   const [courses, setCourses] = useState([]);
@@ -67,12 +28,11 @@ export default function CoursesPage() {
   }, []);
 
   return (
-    <main className="min-h-screen text-(--gray-900)">
-      <Navbar />
+    <main className="text-(--gray-900)">
 
-      <div className="border-x-2 border-(--gray-500) max-w-7xl mx-auto">
+      <div className="border-x border-b border-(--gray-500) max-w-7xl mx-auto">
 
-        <ActiveCourses />
+        {/* <ActiveCourses /> */}
 
         <div className="px-6 pt-12">
           <h2 className="text-4xl font-medium">Courses</h2>
@@ -91,7 +51,6 @@ export default function CoursesPage() {
           selectedLevel={selectedLevel}
           selectedCategory={selectedCategory}
         />
-
         <div className="py-10"></div>
       </div>
     </main>

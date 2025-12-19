@@ -11,13 +11,13 @@ import ReviewHeader from "./components/Reviews/ReviewHeader";
 
 export default function Home() {
   return (
-    <main className="min-h-screen text-(--gray-900)">
-      <Navbar />
-      <div className="border-x-2 border-(--gray-500) max-w-7xl mx-auto">
+    <main className="text-(--gray-900)">
+      <div className="border-x border-b border-(--gray-500) max-w-7xl mx-auto">
       <Hero text={`Your Space <br/> To Grow In <br/> Software Engineering`}
             desc={`Find the knowledge that shapes great software engineers.`}
             author={`Anurag Sharma`}
             search={true}
+            isImage={true}
       />        
       <Tracks/> 
       <Courses/>
@@ -26,8 +26,8 @@ export default function Home() {
       <Reviews/>
       <NormalFooter/>
       {/* <TopicsSection />  */}
+      <div className="py-10"></div>
       </div>
-      <Footer />
     </main>
   );
 }

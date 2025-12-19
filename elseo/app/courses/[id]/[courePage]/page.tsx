@@ -43,7 +43,7 @@
 //     <div className="max-w-7xl mx-auto">
 //       <Navbar />
 
-//       <div className="border-x-2 border-b-2 border-(--gray-500)">
+//       <div className="border-x border-b border-(--gray-500)">
         
 //         <CourseHeader
 //           course={course.title}
@@ -57,7 +57,7 @@
 //           selectedVideoId={videoId}
 //         />
 
-//         <div className="py-6 border-t-2 border-(--gray-500)"></div>
+//         <div className="py-6 border-t border-(--gray-500)"></div>
 //       </div>
 
 //       <Footer />
@@ -124,10 +124,9 @@ export default function CoursePage({
   }
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <Navbar />
+    <div className="max-w-7xl mx-auto w-full">
 
-      <div className="border-x-2 border-b-2 border-(--gray-500)">
+      <div className="border-x border-b border-(--gray-500)">
         <CourseHeader
           course={course.title}
           section={selectedSection}
@@ -140,10 +139,9 @@ export default function CoursePage({
           selectedVideoId={videoId}
         />
 
-        <div className="py-6 border-t-2 border-(--gray-500)"></div>
+        <div className="py-6 border-t border-(--gray-500)"></div>
       </div>
 
-      <Footer />
     </div>
   );
 }

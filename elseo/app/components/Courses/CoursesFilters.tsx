@@ -1,33 +1,3 @@
-// export default function CoursesFilters() {
-//   return (
-//     <section className="border-b-2 border-(--gray-500) p-6 flex items-center justify-between">
-//       {/* Left tabs */}
-//       <div className="flex gap-6 text-(--gray-700) font-medium">
-//         <button className="text-(--gray-900)">All</button>
-//         <button>Beginner</button>
-//         <button>Intermediate</button>
-//         <button>Advanced</button>
-//       </div>
-
-//       {/* Dropdown */}
-//       <div className="relative">
-//         <select className="border border-(--gray-500) text-sm px-3 py-2 rounded-md bg-white">
-//           <option>All Topics</option>
-//           <option>UX Design</option>
-//           <option>UI Design</option>
-//           <option>Typography</option>
-//           <option>Color</option>
-//           <option>Motion Design</option>
-//         </select>
-//       </div>
-//     </section>
-//   );
-// }
-
-
-
-
-
 "use client";
 
 export default function CoursesFilters({
@@ -37,10 +7,10 @@ export default function CoursesFilters({
   selectedCategory,
   setSelectedCategory
 }) {
-  const levels = ["All", "Beginner", "Intermediate", "Advanced"];
+  const levels = ["All", "Easy", "Intermediate", "Advanced"];
 
   return (
-    <section className="border-b-2 border-(--gray-500) p-6 flex items-center justify-between">
+    <section className="border-b border-(--gray-500) p-6 flex items-center justify-between">
 
       {/* LEVEL FILTER BUTTONS */}
       <div className="flex gap-6 text-(--gray-700) font-medium">

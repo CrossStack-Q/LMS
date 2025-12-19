@@ -1,166 +1,39 @@
-// import SearchBar from "./SearchBar";
-
-// export default function Navbar() {
-//   return (
-//     <nav className="max-w-7xl mx-auto border-b-2 border-x-2 border-(--gray-500) grid grid-cols-4">
-//       <div className="flex items-center gap-2 col-span-1 border-r-2 border-(--gray-500) p-6">
-//         <span className="text-(--primary-dark) font-bold">Learing</span>
-//         <span className="text-(--gray-700)">Online</span>
-//       </div>
-
-//       <ul className="hidden lg:flex items-center justify-center gap-8 text-(--gray-700) col-span-2 p-6 border-r-2 border-(--gray-500)">
-//         <li>Tracks</li>
-//         <li>Courses</li>
-//         <li>Blog</li>
-//         <li className="font-medium">Sign In →</li>
-//       </ul>
-
-// <div className="p-6">
-//       <SearchBar/>
-//       </div>
-//     </nav>
-//   );
-// }
-
-
-// "use client";
-
-// import Link from "next/link";
-// import SearchBar from "./SearchBar";
-// import { useState } from "react";
-
-// export default function Navbar() {
-//   const [open, setOpen] = useState(false);
-
-//   return (
-//     <>
-//       {/* DESKTOP NAVBAR (md and up) */}
-//       <nav className="hidden md:grid max-w-7xl mx-auto border-b-2 border-x-2 border-(--gray-500) grid-cols-4">
-        
-//         {/* Logo */}
-//         <Link
-//           href="/"
-//           className="flex items-center gap-2 col-span-1 border-r-2 border-(--gray-500) p-2"
-//         >
-//           <span className="text-(--primary-dark) font-bold">Learing</span>
-//           <span className="text-(--gray-700)">Online</span>
-//         </Link>
-
-//         {/* Center Menu */}
-//         <ul className="hidden lg:flex items-center justify-center gap-8 text-(--gray-700) col-span-2 p-2 border-r-2 border-(--gray-500)">
-//           <li>
-//             <Link href="/tracks" className="hover:text-(--primary-dark)">
-//             Tracks
-//             </Link>
-//             </li>
-
-//           <li>
-//             <Link href="/courses" className="hover:text-(--primary-dark)">
-//               Courses
-//             </Link>
-//           </li>
-
-//           <li>
-//             <Link href="/blog" className="hover:text-(--primary-dark)">
-//             Blog
-//             </Link>
-//             </li>
-//           <li className="font-medium cursor-pointer">Sign In →</li>
-//         </ul>
-
-//         {/* Search */}
-//         <div className="p-2">
-//           <SearchBar />
-//         </div>
-//       </nav>
-
-//       {/* MOBILE NAVBAR (< md) */}
-//       <nav className="md:hidden border-b-2 border-(--gray-500) px-4 py-4 flex items-center justify-between max-w-7xl mx-auto">
-
-//         {/* Logo */}
-//         <Link href="/" className="flex items-center gap-2">
-//           <span className="text-(--primary-dark) font-bold">Learing</span>
-//           <span className="text-(--gray-700)">Online</span>
-//         </Link>
-
-//         {/* Hamburger Button */}
-//         <button
-//           className="text-2xl"
-//           onClick={() => setOpen(!open)}
-//         >
-//           ☰
-//         </button>
-//       </nav>
-
-//       {/* MOBILE MENU DROPDOWN */}
-//       {open && (
-//         <div className="md:hidden border-b-2 border-(--gray-500) bg-white px-4 py-4 space-y-4 text-(--gray-800) max-w-7xl mx-auto">
-
-//           <Link href="/tracks" className="block">
-//             Tracks
-//           </Link>
-
-//           <Link href="/courses" className="block">
-//             Courses
-//           </Link>
-
-//           <Link href="/blog" className="block">
-//             Blog
-//           </Link>
-
-//           <button className="block font-medium">Sign In →</button>
-
-//           <div className="pt-2">
-//             <SearchBar />
-//           </div>
-//         </div>
-//       )}
-//     </>
-//   );
-// }
-
-
-
-
-
 "use client";
 
 import Link from "next/link";
 import SearchBar from "./SearchBar";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { useAuth } from "@/app/providers";
 
 export default function Navbar() {
+  const { user } = useAuth();
   const [open, setOpen] = useState(false);
-  const pathname = usePathname(); // <-- current route
+  const pathname = usePathname();
 
-  // Helper: checks if route starts with a tab
   const isActive = (route: string) => pathname.startsWith(route);
 
   return (
     <>
-      {/* DESKTOP NAVBAR (md and up) */}
-      <nav className="hidden md:grid max-w-7xl mx-auto border-b-2 border-x-2 border-(--gray-500) grid-cols-4">
-        
-        {/* Logo */}
+      <nav className="hidden md:grid max-w-7xl mx-auto border-b border-x border-(--gray-500) grid-cols-4">
+
         <Link
           href="/"
-          className="flex items-center gap-2 col-span-1 border-r-2 border-(--gray-500) p-2"
+          className="flex text-xl items-center gap-2 col-span-1 border-r border-(--gray-500) p-2"
         >
           <span className="text-(--primary-dark) font-bold">Learing</span>
           <span className="text-(--gray-700)">Online</span>
         </Link>
 
         {/* Center Menu */}
-        <ul className="hidden lg:flex items-center justify-center gap-8 text-(--gray-700) col-span-2 p-2 border-r-2 border-(--gray-500)">
-          
+        <ul className="hidden lg:flex items-center justify-center gap-8 text-(--gray-700) col-span-2 p-2 border-r border-(--gray-500)">
+
           {/* Tracks */}
           <li>
             <Link
               href="/tracks"
-              className={`hover:text-(--primary-dark) ${
-                isActive("/tracks") ? "text-(--primary-green) text-lg font-medium" : ""
-              }`}
+              className={`hover:text-(--primary-dark) ${isActive("/tracks") ? "text-(--primary-dark) text-lg font-semibold" : ""
+                }`}
             >
               Tracks
             </Link>
@@ -170,9 +43,8 @@ export default function Navbar() {
           <li>
             <Link
               href="/courses"
-              className={`hover:text-(--primary-dark) ${
-                isActive("/courses") ? "text-(--primary-green) text-lg font-medium" : ""
-              }`}
+              className={`hover:text-(--primary-dark) ${isActive("/courses") ? "text-(--primary-dark) text-lg font-semibold" : ""
+                }`}
             >
               Courses
             </Link>
@@ -182,15 +54,50 @@ export default function Navbar() {
           <li>
             <Link
               href="/blog"
-              className={`hover:text-(--primary-dark) ${
-                isActive("/blog") ? "text-(--primary-green) text-lg font-medium" : ""
-              }`}
+              className={`hover:text-(--primary-dark) ${isActive("/blog") ? "text-(--primary-dark) text-lg font-semibold" : ""
+                }`}
             >
               Blog
             </Link>
           </li>
+          <li>
+            <Link
+              href="/forum"
+              className={`hover:text-(--primary-dark) ${isActive("/forum") ? "text-(--primary-dark) text-lg font-semibold" : ""
+                }`}
+            >
+              Forum
+            </Link>
+          </li>
 
-          <li className="font-medium cursor-pointer">Sign In →</li>
+          {user ? (
+            <li>
+              <Link
+                href="/profile"
+                className={`hover:text-(--primary-dark) ${isActive("/profile")
+                  ? "text-(--primary-dark) text-lg font-semibold"
+                  : ""
+                  }`}
+              >
+                Profile
+              </Link>
+            </li>
+          ) : (
+            <li>
+              <Link
+                href="/login"
+                className={`hover:text-(--primary-dark) ${isActive("/login")
+                  ? "text-(--primary-dark) text-lg font-semibold"
+                  : ""
+                  }`}
+              >
+                Sign In →
+              </Link>
+            </li>
+          )}
+
+
+
         </ul>
 
         {/* Search */}
@@ -200,7 +107,7 @@ export default function Navbar() {
       </nav>
 
       {/* MOBILE NAVBAR (< md) */}
-      <nav className="md:hidden border-b-2 border-(--gray-500) px-4 py-4 flex items-center justify-between max-w-7xl mx-auto">
+      <nav className="md:hidden border-b border-(--gray-500) px-4 py-4 flex items-center justify-between max-w-7xl mx-auto">
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
@@ -216,36 +123,62 @@ export default function Navbar() {
 
       {/* MOBILE MENU */}
       {open && (
-        <div className="md:hidden border-b-2 border-(--gray-500) bg-white px-4 py-4 space-y-4 text-(--gray-800) max-w-7xl mx-auto">
+        <div className="md:hidden border-b border-(--gray-500) bg-white px-4 py-4 space-y-4 text-(--gray-800) max-w-7xl mx-auto">
 
           <Link
             href="/tracks"
-            className={`block ${
-              isActive("/tracks") ? "text-(--primary-green) text-lg font-medium" : ""
-            }`}
+            className={`block ${isActive("/tracks") ? "text-(--primary-dark) text-lg font-semibold" : ""
+              }`}
           >
             Tracks
           </Link>
 
           <Link
             href="/courses"
-            className={`block ${
-              isActive("/courses") ? "text-(--primary-green) text-lg font-medium" : ""
-            }`}
+            className={`block ${isActive("/courses") ? "text-(--primary-dark) text-lg font-semibold" : ""
+              }`}
           >
             Courses
           </Link>
 
           <Link
             href="/blog"
-            className={`block ${
-              isActive("/blog") ? "text-(--primary-green) text-lg font-medium" : ""
-            }`}
+            className={`block ${isActive("/blog") ? "text-(--primary-dark) text-lg font-semibold" : ""
+              }`}
           >
             Blog
           </Link>
 
-          <button className="block font-medium">Sign In →</button>
+          <Link
+            href="/forum"
+            className={`block ${isActive("/forum") ? "text-(--primary-dark) text-lg font-semibold" : ""
+              }`}
+          >
+            Forum
+          </Link>
+
+          {user ? (
+            <Link
+              href="/profile"
+              className={`block ${isActive("/profile")
+                  ? "text-(--primary-dark) text-lg font-semibold"
+                  : ""
+                }`}
+            >
+              Profile
+            </Link>
+          ) : (
+            <Link
+              href="/login"
+              className={`block ${isActive("/login")
+                  ? "text-(--primary-dark) text-lg font-semibold"
+                  : ""
+                }`}
+            >
+              Sign In →
+            </Link>
+          )}
+
 
           <div className="pt-2">
             <SearchBar />

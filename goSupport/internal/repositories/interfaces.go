@@ -4,6 +4,7 @@ import (
 	"context"
 
 	"github.com/CrossStack-Q/LMS/goSupport/internal/models"
+	"github.com/google/uuid"
 )
 
 // UserRepository defines persistence operations for users.
@@ -22,3 +23,9 @@ type TeacherRepository interface {
 }
 
 // CourseRepository for course persistence
+
+// BlogRepository for blog
+type BlogRepositoryInterface interface {
+	ListAllBlogs(ctx context.Context, limit, offset int) ([]models.Blog, error)
+	GetBlogByID(ctx context.Context, id uuid.UUID) (*models.Blog, error)
+}

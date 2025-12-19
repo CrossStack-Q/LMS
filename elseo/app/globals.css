@@ -17,6 +17,33 @@
   --font-main: "IBM Plex Sans", sans-serif;
 }
 
+.hidescroll::-webkit-scrollbar {
+  display: none;
+}
+
+.hidescroll {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+@layer utilities {
+  /* Remove right border on every 4th item */
+  .col-4n\:no-r:nth-child(4n) {
+    border-right: 0 !important;
+  }
+
+  .col-2n\:no-r:nth-child(2n) {
+    border-right: 0 !important;
+  }
+
+  /* Add bottom border to last row */
+  .last-row\:border-b {
+    border-bottom-width: 1px;
+  }
+}
+
+
+
 /* page default */
 html,body{height:100%}
 body {

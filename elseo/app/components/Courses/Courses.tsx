@@ -5,18 +5,18 @@ type Props = {}
 const Courses = (props: Props) => {
     return (
         <div className="grid grid-cols-4 grid-rows-4">
-            <div className="border-r-2 border-b-2 border-(--gray-300) hidden md:block"></div>
-            <div className="border-r-2 border-b-2 border-(--gray-300) hidden md:block"></div>
-            <div className="border-r-2 border-b-2 border-(--gray-300) hidden md:block"></div>
-            <div className="border-b-2 border-(--gray-300) hidden md:block"></div>
+            <div className="border-r border-b border-(--gray-500) hidden md:block"></div>
+            <div className="border-r border-b border-(--gray-500) hidden md:block"></div>
+            <div className="border-r border-b border-(--gray-500) hidden md:block"></div>
+            <div className="border-b border-(--gray-500) hidden md:block"></div>
 
-            <div className="col-span-2 flex items-center justify-center border-r-2 border-b-2 border-(--gray-300) p-6 bg-(--bg-white)">
+            <div className="col-span-2 flex items-center justify-center border-r border-b border-(--gray-500) p-6 bg-(--bg-white)">
                 <h2 className="text-4xl font-semibold">Courses</h2>
             </div>
 
-            <div className="col-span-1 border-b-2 border-r-2 border-(--gray-300) p-6 flex justify-center items-center cursor-pointer">
-                <div className='flex bg-(--bg-white) text-xl border-y-2 border-l-2 border-(--gray-300) hover:bg-(--primary-green) hover:border-(--primary-green)'>
-                    <div className='w-fit px-4 py-2 bg-(--bg-white) text-xl border-y-2 border-l-2 border-(--gray-300) hover:bg-(--primary-green) hover:border-(--primary-green)'>
+            <div className="col-span-1 border-b border-r border-(--gray-500) p-6 flex justify-center items-center cursor-pointer">
+                <div className='flex bg-(--bg-white) text-xl border-y border-l-2 border-(--gray-500) hover:bg-(--primary-green) hover:border-(--primary-green)'>
+                    <div className='w-fit px-4 py-2 bg-(--bg-white) text-xl border-y border-l-2 border-(--gray-500) hover:bg-(--primary-green) hover:border-(--primary-green)'>
                         Browse courses
                     </div>
                     <div className='px-4 py-2 bg-(--primary-green) text-xl text-(--primary-dark) border-2 border-(--primary-green)'>
@@ -25,13 +25,13 @@ const Courses = (props: Props) => {
                 </div>
 
             </div>
-            <div className="col-span-1 border-b-2 border-(--gray-300) p-6">
+            <div className="col-span-1 border-b border-(--gray-500) p-6">
                 <p className="text-(--gray-500) font-semibold text-lg leading-relaxed">
                     Dive into world of Software Engineering with video courses.
                 </p>
             </div>
 
-            <div className="col-span-1 row-span-2 border-r-2 border-(--gray-300) gap-4 flex flex-col items-center p-6 hover:bg-(--bg-white) cursor-pointer">
+            <div className="col-span-1 row-span-2 border-r border-(--gray-500) gap-4 flex flex-col items-center p-6 hover:bg-(--bg-white) cursor-pointer">
                 <div className="w-48 h-auto flex items-center justify-center ">
                     <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp_webp/e4d7a1154960861.634c180054d25.png" alt="" />
                 </div>
@@ -49,7 +49,7 @@ const Courses = (props: Props) => {
                 </div>
             </div>
 
-            <div className="col-span-1 row-span-2 border-r-2 border-(--gray-300) gap-4 flex flex-col items-center p-6 hover:bg-(--bg-white) cursor-pointer">
+            <div className="col-span-1 row-span-2 border-r border-(--gray-500) gap-4 flex flex-col items-center p-6 hover:bg-(--bg-white) cursor-pointer">
                 <div className="w-48 h-auto flex items-center justify-center ">
                     <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp_webp/e4d7a1154960861.634c180054d25.png" alt="" />
                 </div>
@@ -66,7 +66,7 @@ const Courses = (props: Props) => {
                     </div>
                 </div>
             </div>
-            <div className="col-span-1 row-span-2 border-r-2 border-(--gray-300) gap-4 flex flex-col items-center p-6 hover:bg-(--bg-white) cursor-pointer">
+            <div className="col-span-1 row-span-2 border-r border-(--gray-500) gap-4 flex flex-col items-center p-6 hover:bg-(--bg-white) cursor-pointer">
                 <div className="w-48 h-auto flex items-center justify-center ">
                     <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp_webp/e4d7a1154960861.634c180054d25.png" alt="" />
                 </div>
